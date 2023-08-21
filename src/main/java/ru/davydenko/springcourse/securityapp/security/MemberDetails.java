@@ -1,10 +1,12 @@
 package ru.davydenko.springcourse.securityapp.security;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import ru.davydenko.springcourse.securityapp.models.Member;
 
 import java.util.Collection;
+import java.util.Collections;
 
 public class MemberDetails implements UserDetails {
 
@@ -16,7 +18,7 @@ public class MemberDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.singletonList(new SimpleGrantedAuthority(getMember().getRole()));
     }
 
     @Override

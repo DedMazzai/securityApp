@@ -20,9 +20,9 @@ public class RegistrationService {
     }
 
     @Transactional
-    public void register(Member member){
+    public void register(Member member) {
         member.setPassword(passwordEncoder.encode(member.getPassword()));
-
+        member.setRole("ROLE_USER");
         peopleRepository.save(member);
     }
 }

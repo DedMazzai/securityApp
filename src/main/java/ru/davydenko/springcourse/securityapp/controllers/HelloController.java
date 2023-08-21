@@ -19,4 +19,9 @@ public class HelloController {
         System.out.println(memberDetails.getMember());
         return "hello";
     }
+
+    @GetMapping("/admin")
+    public String adminPage(){
+        return "admin";
+    }
 }
